@@ -155,7 +155,6 @@
               <br>
               <p class="card-text text-white">Este mes, nos complace anunciar el emocionante desarrollo del Ciclo de Conferencias en la ciudad de Buenos Aires. 
                 <br><br>Desde charlas magistrales hasta mesas redondas interactivas, el Ciclo de Conferencias de Octubre en Buenos Aires ofrece una experiencia única de aprendizaje, con oradores líderes en sus campos. 
-                Tendrás la oportunidad de conectarte con profesionales destacados y descubrir las últimas tendencias que están dando forma al mundo actual.
                 <br><br>No pierdas la oportunidad de participar en este evento único. ¡Reserva tu lugar ahora y sé parte de una experiencia que cambiará tu perspectiva! 
                 </p>
               <a class="btn btn-outline-light" href="#">conocé más</a>
@@ -172,19 +171,22 @@
           <h6>Conviertete en</h6>
           <h2>ORADOR</h2>
           <h6>Anotate como orador para dar una charla ignite. Cuentanos de que quieres hablar!</h6>
-        <div  class="container col-6 mt-3">
-        <div class="input-group mb-3">
-          <input type="text" class="form-control" placeholder="nombre" aria-label="Username">
-          <input type="text" class="form-control" placeholder="apellido" aria-label="Server">
-        </div>
-        
-        <div class="input-group">
-          <textarea class="form-control" placeholder="sobre que quieres hablar?"></textarea>
-        </div>
-          </div>
-          <div  class="form-text mb-3">Recuerda incluir un título para tu charla.</div>
-          <div class="d-grid gap-1 col-6 mx-auto mb-3">
-            <button class="enviar btn-primary" type="button">Enviar</button>
+        <form action="pages/oradoresForm.jsp" method="POST">
+                    <div class="container col-6 mt-3">
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" placeholder="Nombre" name="nombre" aria-label="Nombre">
+                            <input type="text" class="form-control" placeholder="Apellido" name="apellido" aria-label="Apellido">
+                        </div>
+
+                        <div class="input-group">
+                            <textarea class="form-control" placeholder="¿Sobre qué quieres hablar?" name="tema"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-text mb-3">Recuerda incluir un título para tu charla.</div>
+                    <div class="d-grid gap-1 col-6 mx-auto mb-3">
+                        <button class="enviar btn-primary" type="submit">Enviar</button>
+                    </div>
+                </form>
           </div>
       </section>
     </main>

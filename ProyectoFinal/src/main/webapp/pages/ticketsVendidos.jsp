@@ -46,7 +46,7 @@
 <% 
      Conexion myConexion= new Conexion();
      Connection cn =myConexion.conectar();
-     PreparedStatement ps=cn.prepareStatement("SELECT * FROM `tickets`");
+     PreparedStatement ps=cn.prepareStatement("SELECT * FROM `ticket`");
      ResultSet rs=ps.executeQuery();
 %>
 

@@ -1,7 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-    <%@ page import = "proyectoFinal.java.Conexion" %>
-    <%@ page import= "java.sql.*" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="java.sql.*" %>
+<%@ page import = "proyectoFinal.java.Conexion" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,34 +12,28 @@
     <%
         String nombre = request.getParameter("nombre");
         String apellido = request.getParameter("apellido");
-        String correo = request.getParameter("mail");
-        String categoria = request.getParameter("categoria");
-        String cantidad = request.getParameter("cantidad");
+        String tema = request.getParameter("tema");
 
-        // Excluye la columna 'id' de la inserci�n
-        String sql = "INSERT INTO ticket (nombre, apellido, email, cantidad, categoria) VALUES (?, ?, ?, ?, ?)";
+      
+        String sql = "INSERT INTO oradores (nombre, apellido, tema) VALUES (?, ?, ?)";
 
-        Conexion myConexion= new Conexion();
+		Conexion myConexion= new Conexion();
         
         Connection cn =myConexion.conectar();
         PreparedStatement pstmt = null;
-
         
+        
+       
 
         try {
-           
-
             pstmt = cn.prepareStatement(sql);
             pstmt.setString(1, nombre);
             pstmt.setString(2, apellido);
-            pstmt.setString(3, correo);
-            pstmt.setInt(4, Integer.parseInt(cantidad));
-            pstmt.setString(5, categoria);
-           
+            pstmt.setString(3, tema);
+
             pstmt.executeUpdate();
            
-
-          
+            out.println("DATOS CARGADOS CORRECTAMENTE");
         } catch (SQLException e) {
             out.println("No se pudieron enviar los datos. Error: " + e.getMessage());
             e.printStackTrace();
@@ -61,6 +55,8 @@
             }
         }
     %>
-    <jsp:include page="tickets.jsp"></jsp:include>
+    <%
+        response.sendRedirect("confirmacion.jsp"); // Reemplaza "confirmacion.jsp" con la página que desees mostrar después de la inserción.
+    %>
 </body>
 </html>
